@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL Flask App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1580063665762-762002ea39d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h4 {
+            font-weight: bold;
+        }
+
+        .list-group-item {
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card text-center">
+        <h1 class="text-primary mb-4"> MySQL Flask App</h1>
+
+        <h4 class="text-secondary mb-3">Available Tables</h4>
+        <ul class="list-group mb-4">
+            {% for table in tables %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <strong>{{ table }}</strong>
+                <a href="/view/{{ table }}" class="btn btn-sm btn-outline-primary">View</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/add" class="btn btn-success me-2"> Add Record</a>
+        <a href="/delete" class="btn btn-danger"> Delete Record</a>
+    </div>
+
+</body>
+</html>
